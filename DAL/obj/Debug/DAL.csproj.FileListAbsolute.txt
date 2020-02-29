@@ -1,0 +1,11 @@
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\DAL.dll.config
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\DAL.dll
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\DAL.pdb
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\EntityFramework.dll
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\EntityFramework.xml
+E:\C\ADONET\HWManyArchEntityNew\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.dll
+E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.pdb
