@@ -52,7 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarDetailsContext.cs" />
-    <Compile Include="Interfaces\ICarDetailsRepository.cs" />
+    <Compile Include="Interfaces\IDBRepository.cs" />
+    <Compile Include="Migrations\202002292127280_Initial_Create.cs" />
+    <Compile Include="Migrations\202002292127280_Initial_Create.designer.cs">
+      <DependentUpon>202002292127280_Initial_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cars.cs" />
     <Compile Include="Models\Details.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,7 +68,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002292127280_Initial_Create.resx">
+      <DependentUpon>202002292127280_Initial_Create.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

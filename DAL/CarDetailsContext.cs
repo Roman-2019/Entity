@@ -14,7 +14,7 @@ namespace DAL
         {
         }
 
-        public DbSet<Cars> Carses { get; set; }
-        public DbSet<Details> Detailses { get; set; }
+        public DbSet<Cars> Cars { get; set; }
+        public DbSet<Details> Details { get; set; }
     }
 }

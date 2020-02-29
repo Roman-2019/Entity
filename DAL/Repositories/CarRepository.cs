@@ -9,7 +9,7 @@ using DAL.Models;
 
 namespace DAL.Repositories
 {
-    public class CarRepository : ICarDetailsRepository<Cars>
+    public class CarRepository : IDBRepository<Cars>
     {
         private readonly CarDetailsContext _ctx;
 
@@ -22,9 +22,8 @@ namespace DAL.Repositories
         public void Delete(int id)
         {
             var carDelete = GetId(id);
-            _ctx.Carses.Remove(carDelete);
+            _ctx.Cars.Remove(carDelete);
             _ctx.SaveChanges();
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<Cars> GetAll()
@@ -51,32 +50,28 @@ namespace DAL.Repositories
             //    //throw new NotImplementedException();
             //}
             //return result;
-            return _ctx.Carses.AsNoTracking().ToList();
+            return _ctx.Cars.AsNoTracking().ToList();
         }
 
             public Cars GetId(int id)
         {
-            var cargetid = _ctx.Carses.Where(x => x.Id == id).FirstOrDefault();
-            return cargetid;
-            //throw new NotImplementedException();
+            var carGetId = _ctx.Cars.FirstOrDefault(x => x.Id == id);
+            return carGetId;
         }
 
-        public void Insert(Cars tmp)
+        public void Insert(Cars cars)
         {
-            _ctx.Carses.Add(tmp);
+            _ctx.Cars.Add(cars);
             _ctx.SaveChanges();
-
-            //throw new NotImplementedException();
         }
 
-        public void Update(Cars tmp)
+        public void Update(Cars cars)
         {
-            var updatedCar = GetId(tmp.Id);
-            updatedCar.Detailses = tmp.Detailses;
+            var updatedCar = GetId(cars.Id);
+            updatedCar.Details = cars.Details;
 
             _ctx.Entry(updatedCar);
             _ctx.SaveChanges();
-            //throw new NotImplementedException();
         }
     }
 }

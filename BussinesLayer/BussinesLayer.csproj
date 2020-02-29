@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ICarDetailsService.cs" />
+    <Compile Include="Interfaces\IDBService.cs" />
     <Compile Include="Models\CarsModel.cs" />
     <Compile Include="Models\DetailsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

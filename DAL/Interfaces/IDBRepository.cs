@@ -7,12 +7,12 @@ using DAL.Models;
 
 namespace DAL.Interfaces
 {
-    public interface ICarDetailsRepository<T> where T: class
+    public interface IDBRepository<T> where T: class
     {
         IEnumerable<T> GetAll();
         T GetId(int id);
-        void Insert(T tmp);
+        void Insert(T model);
         void Delete(int id);
-        void Update(T tmp);
+        void Update(T model);
     }
 }

@@ -11,7 +11,7 @@ using System.Data.Entity.SqlServer;
 
 namespace DAL.Repositories
 {
-    public class DetailRepository : ICarDetailsRepository<Details>
+    public class DetailRepository : IDBRepository<Details>
     {
         private readonly CarDetailsContext _ctx;
 
@@ -24,40 +24,35 @@ namespace DAL.Repositories
         public void Delete(int id)
         {
             var detail = GetId(id);
-            _ctx.Detailses.Remove(detail);
+            _ctx.Details.Remove(detail);
             _ctx.SaveChanges();
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<Details> GetAll()
         {
-            return _ctx.Detailses.AsNoTracking().ToList();
-            //throw new NotImplementedException();
+            return _ctx.Details.AsNoTracking().ToList();
         }
 
         public Details GetId(int id)
         {
-            var detail = _ctx.Detailses.FirstOrDefault(x => x.Id == id);
+            var detail = _ctx.Details.FirstOrDefault(x => x.Id == id);
             return detail;
-           // throw new NotImplementedException();
         }
 
-        public void Insert(Details tmp)
+        public void Insert(Details details)
         {
-            _ctx.Detailses.Add(tmp);
+            _ctx.Details.Add(details);
             _ctx.SaveChanges();
-            //throw new NotImplementedException();
         }
 
-        public void Update(Details tmp)
+        public void Update(Details details)
         {
-            var updateDetail = GetId(tmp.Id);
-            updateDetail.NameDetail = tmp.NameDetail;
-            updateDetail.Number = tmp.Number;
+            var updateDetail = GetId(details.Id);
+            updateDetail.NameDetail = details.NameDetail;
+            updateDetail.Number = details.Number;
 
             _ctx.Entry(updateDetail);
             _ctx.SaveChanges();
-            //throw new NotImplementedException();
         }
     }
 }

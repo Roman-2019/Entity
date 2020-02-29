@@ -17,10 +17,10 @@ namespace ManyArchEntity
             //var allCars = carController.GetAll();
             //var carById = carController.GetId(1);
             //var allDetails = detailController.GetAll();
-            var detailById = detailController.GetId(1);
+            var detailById = detailController.GetId(2);
             //detailController.Insert(null);
             //detailController.Update(null);
-            //detailController.Delete(9);
+            //detailController.Delete(5);
 
             
             //carController.Insert(null);

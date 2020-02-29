@@ -11,9 +11,9 @@ using BussinesLayer.Services;
 
 namespace PresentationLayer.Controllers
 {
-    public class DetailsController : ICarDetailsController<DetailsViewModel>
+    public class DetailsController : IDBController<DetailsViewModel>
     {
-        private readonly ICarDetailsService<DetailsModel> _cardetailscontroller;
+        private readonly IDBService<DetailsModel> _cardetailscontroller;
         public DetailsController()
         {
             _cardetailscontroller = new DetailsService();
@@ -22,7 +22,6 @@ namespace PresentationLayer.Controllers
         public void Delete(int id)
         {
             _cardetailscontroller.Delete(id);
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<DetailsViewModel> GetAll()
@@ -38,10 +37,9 @@ namespace PresentationLayer.Controllers
                                         Id = detail.CarsModel.Id,
                                         Name = detail.CarsModel.Name,
                                     },
-                                    CarId = detail.CarId
+                                    CarsId = detail.CarsId
                                 };
             return resultDetailView;
-            //throw new NotImplementedException();
         }
 
         public DetailsViewModel GetId(int id)
@@ -60,22 +58,20 @@ namespace PresentationLayer.Controllers
                 }
             };
             return details;
-            //throw new NotImplementedException();
         }
 
-        public void Insert(DetailsViewModel tmp)
+        public void Insert(DetailsViewModel detailsViewModel)
         {
             var adddetail = new DetailsModel
             {
                 NameDetail = "NewDetail",
                 Number=789,
-                CarId=4
+                CarsId=1
             };
             _cardetailscontroller.Insert(adddetail);
-            //throw new NotImplementedException();
         }
 
-        public void Update(DetailsViewModel tmp)
+        public void Update(DetailsViewModel detailsViewModel)
         {
             var updatedetail = new DetailsModel
             {
@@ -85,7 +81,6 @@ namespace PresentationLayer.Controllers
             };
 
             _cardetailscontroller.Update(updatedetail);
-            //throw new NotImplementedException();
         }
     }
 }

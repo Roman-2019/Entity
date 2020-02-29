@@ -11,10 +11,10 @@ using DAL.Repositories;
 
 namespace BussinesLayer.Services
 {
-    public class DetailsService : ICarDetailsService<DetailsModel>
+    public class DetailsService : IDBService<DetailsModel>
     {
-        private readonly ICarDetailsRepository<Details> _carDetailsRepository;
-        private readonly ICarDetailsRepository<Cars> carDetailsRepository;
+        private readonly IDBRepository<Details> _carDetailsRepository;
+        private readonly IDBRepository<Cars> carDetailsRepository;
         public DetailsService()
         {
             _carDetailsRepository = new DetailRepository();
@@ -24,7 +24,6 @@ namespace BussinesLayer.Services
         public void Delete(int id)
         {
             _carDetailsRepository.Delete(id);
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<DetailsModel> GetAll()
@@ -40,11 +39,10 @@ namespace BussinesLayer.Services
                                Id = detail.Cars.Id,
                                Name = detail.Cars.Name
                            },
-                               CarId = detail.CarId
+                               CarsId = detail.CarsId
                            
                        };
             return details.ToList();
-            //throw new NotImplementedException();
         }
 
         public DetailsModel GetId(int id)
@@ -63,33 +61,30 @@ namespace BussinesLayer.Services
                 }
             };
             return details;
-            //throw new NotImplementedException();
         }
 
-        public void Insert(DetailsModel tmp)
+        public void Insert(DetailsModel detailsModel)
         {
-            var car = carDetailsRepository.GetAll().Where(x => x.Id == tmp.CarId).FirstOrDefault();
+            var car = carDetailsRepository.GetAll().Where(x => x.Id == detailsModel.CarsId).FirstOrDefault();
             var detail = new Details
             {
-                NameDetail = tmp.NameDetail,
-                Number = tmp.Number,
-                CarId = tmp.CarId
+                NameDetail = detailsModel.NameDetail,
+                Number = detailsModel.Number,
+                CarsId = detailsModel.CarsId
             };
 
             _carDetailsRepository.Insert(detail);
-            //throw new NotImplementedException();
         }
 
-        public void Update(DetailsModel tmp)
+        public void Update(DetailsModel detailsModel)
         {
             var detail = new Details
             {
-                Id = tmp.Id,
-                NameDetail = tmp.NameDetail,
-                Number = tmp.Number
+                Id = detailsModel.Id,
+                NameDetail = detailsModel.NameDetail,
+                Number = detailsModel.Number
             };
             _carDetailsRepository.Update(detail);
-            //throw new NotImplementedException();
         }
     }
 }

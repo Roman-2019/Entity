@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
-    <Compile Include="Interfaces\ICarDetailsController.cs" />
+    <Compile Include="Interfaces\IDBController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CarsViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />

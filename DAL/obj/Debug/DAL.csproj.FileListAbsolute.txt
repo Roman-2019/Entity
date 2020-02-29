@@ -9,3 +9,5 @@ E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.csproj.CopyComplete
 E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.dll
 E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.pdb
+E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.Migrations.Initial_Create.resources
+E:\C\ADONET\HWManyArchEntityNew\DAL\obj\Debug\DAL.csproj.GenerateResource.cache

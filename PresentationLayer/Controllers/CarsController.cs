@@ -11,9 +11,9 @@ using BussinesLayer.Services;
 
 namespace PresentationLayer.Controllers
 {
-    public class CarsController : ICarDetailsController<CarsViewModel>
+    public class CarsController : IDBController<CarsViewModel>
     {
-        private readonly ICarDetailsService<CarsModel> _cardetailscontroller;
+        private readonly IDBService<CarsModel> _cardetailscontroller;
         public CarsController() 
         {
             _cardetailscontroller = new CarsService();
@@ -21,7 +21,6 @@ namespace PresentationLayer.Controllers
         public void Delete(int id)
         {
             _cardetailscontroller.Delete(id);
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<CarsViewModel> GetAll()
@@ -31,16 +30,15 @@ namespace PresentationLayer.Controllers
                                 {
                                     Id = car.Id,
                                     Name = car.Name,
-                                    Detailses = car.Detailses.Select(x => new DetailsViewModel
+                                    DetailsViewModel = car.DetailsModel.Select(x => new DetailsViewModel
                                     {
                                         Id = x.Id,
                                         NameDetail = x.NameDetail,
                                         Number = x.Number,
-                                        CarId = x.CarId
+                                        CarsId = x.CarsId
                                     })
                                 };
             return resultCarView;
-            //throw new NotImplementedException();
         }
 
         public CarsViewModel GetId(int id)
@@ -50,35 +48,34 @@ namespace PresentationLayer.Controllers
             {
                 Id = car.Id,
                 Name = car.Name,
-                Detailses = car.Detailses.Select(x => new DetailsViewModel
+                DetailsViewModel = car.DetailsModel.Select(x => new DetailsViewModel
                 {
                     NameDetail = x.NameDetail,
                     Number = x.Number
                 })
             };
             return cars;
-           // throw new NotImplementedException();
         }
 
-        public void Insert(CarsViewModel tmp)
+        public void Insert(CarsViewModel carsViewModel)
         {
             var addcar = new CarsModel
             {
                 Name = "NewCar",
-                Detailses = new List<DetailsModel>
+                DetailsModel = new List<DetailsModel>
                 {
                     new DetailsModel
                     {
-                        NameDetail = "Mirror",
+                        NameDetail = "Glass",
                         Number = 1234,
+                        
                     }
                 }
             };
             _cardetailscontroller.Insert(addcar);
-            //throw new NotImplementedException();
         }
 
-        public void Update(CarsViewModel tmp)
+        public void Update(CarsViewModel carsViewModel)
         {
             var updatecar = new CarsModel
             {
@@ -87,7 +84,6 @@ namespace PresentationLayer.Controllers
             };
 
             _cardetailscontroller.Update(updatecar);
-            //throw new NotImplementedException();
         }
     }
 }

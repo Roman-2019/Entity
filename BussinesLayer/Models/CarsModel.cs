@@ -10,6 +10,6 @@ namespace BussinesLayer.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<DetailsModel> Detailses { get; set; }
+        public IEnumerable<DetailsModel> DetailsModel { get; set; }
     }
 }

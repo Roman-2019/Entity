@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PresentationLayer.Interfaces
+namespace BussinesLayer.Interfaces
 {
-    public interface ICarDetailsController<T> where T : class
+    public interface IDBService<T> where T:class
     {
         IEnumerable<T> GetAll();
         T GetId(int id);
-        void Insert(T tmp);
+        void Insert(T model);
         void Delete(int id);
-        void Update(T tmp);
+        void Update(T model);
     }
 }

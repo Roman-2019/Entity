@@ -11,6 +11,6 @@ namespace PresentationLayer.ViewModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<DetailsViewModel> Detailses { get; set; }
+        public IEnumerable<DetailsViewModel> DetailsViewModel { get; set; }
     }
 }

@@ -10,11 +10,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Details> Detailses { get; set; }
-        //public Cars()
-        //{
-        //    Detailses = new List<Details>();
-        //}
+        public virtual ICollection<Details> Details { get; set; }
 
     }
 }

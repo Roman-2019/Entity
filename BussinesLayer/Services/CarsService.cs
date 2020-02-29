@@ -11,9 +11,9 @@ using DAL.Repositories;
 
 namespace BussinesLayer.Services
 {
-    public class CarsService : ICarDetailsService<CarsModel>
+    public class CarsService : IDBService<CarsModel>
     {
-        private readonly ICarDetailsRepository<Cars> _carDetailsRepository;
+        private readonly IDBRepository<Cars> _carDetailsRepository;
         
         public CarsService() 
         {
@@ -24,7 +24,6 @@ namespace BussinesLayer.Services
         public void Delete(int id)
         {
             _carDetailsRepository.Delete(id);
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<CarsModel> GetAll()
@@ -34,16 +33,15 @@ namespace BussinesLayer.Services
                             {
                                 Id = car.Id,
                                 Name = car.Name,
-                                Detailses = car.Detailses.Select(x => new DetailsModel
+                                DetailsModel = car.Details.Select(x => new DetailsModel
                                 {
                                     Id = x.Id,
                                     NameDetail = x.NameDetail,
                                     Number = x.Number,
-                                    CarId = x.CarId
+                                    CarsId = x.CarsId
                                 })
                             };
             return cars;
-            //throw new NotImplementedException();
         }
 
         public CarsModel GetId(int id)
@@ -53,7 +51,7 @@ namespace BussinesLayer.Services
             {
                 Id = car.Id,
                 Name = car.Name,
-                Detailses = car.Detailses.Select(x => new DetailsModel
+                DetailsModel = car.Details.Select(x => new DetailsModel
                 {
                     NameDetail = x.NameDetail,
                     Number = x.Number,
@@ -61,35 +59,32 @@ namespace BussinesLayer.Services
                 }).ToList()
             };
             return cars;
-            //throw new NotImplementedException();
         }
 
-        public void Insert(CarsModel tmp)
+        public void Insert(CarsModel carsModel)
         {
             var car = new Cars 
             {
-                Name=tmp.Name,
-                Detailses=tmp.Detailses.Select(x=>new Details 
+                Name= carsModel.Name,
+                Details= carsModel.DetailsModel.Select(x=>new Details 
                 {
                     NameDetail = x.NameDetail,
                     Number=x.Number,
-                    CarId=x.CarId
+                    CarsId=x.CarsId
                 }).ToList()
             };
             _carDetailsRepository.Insert(car);
-            //throw new NotImplementedException();
         }
 
-        public void Update(CarsModel tmp)
+        public void Update(CarsModel carsModel)
         {
             var car = new Cars
             {
-                Id = tmp.Id,
-                Name = tmp.Name
+                Id = carsModel.Id,
+                Name = carsModel.Name
             };
-            car.Name = tmp.Name;
+            car.Name = carsModel.Name;
             _carDetailsRepository.Update(car);
-            //throw new NotImplementedException();
         }
     }
 }

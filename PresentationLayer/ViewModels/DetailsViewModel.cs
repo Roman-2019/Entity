@@ -11,7 +11,7 @@ namespace PresentationLayer.ViewModels
         public int Id { get; set; }
         public string NameDetail { get; set; }
         public int Number { get; set; }
-        public int CarId { get; set; }
+        public int CarsId { get; set; }
         public CarsViewModel CarsViewModel { get; set; }
     }
 }
